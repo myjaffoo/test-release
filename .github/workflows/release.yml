@@ -25,3 +25,4 @@ jobs:
             ### Chart Release
             Chart Repo: ${CHART_REPOSITORY}
             Chart Repo Without Braces: $CHART_REPOSITORY
+            GitHub Repo: ${{ github.repository }}  
