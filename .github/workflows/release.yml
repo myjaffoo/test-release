@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CHART_REPOSITORY: 'test-chart'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          append_body: true
+          body: |
+            ### Chart Release
+            Chart Repo: ${CHART_REPOSITORY}
+            Chart Repo Without Braces: $CHART_REPOSITORY
